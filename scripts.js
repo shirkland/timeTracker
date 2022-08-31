@@ -25,23 +25,23 @@ logButton.addEventListener("click", () => {
     modelInput.value = "";
     jobInput.value = "";
     timeInput.value = "";
-    fetch("http://localhost:3000/", {
-        method: "POST",
-        body: JSON.stringify(newWork),
-        headers: {
-            "Content-Type": "application/json",
-        },
-    });
+    fetch("http://localhost:3000/poop")
+        .then((res) => {
+            return res.json();
+        })
+        .then((data) => {
+            console.log(data);
+        });
+
+    // fetch("http://localhost:3000/", {
+    //     method: "POST",
+    //     body: JSON.stringify(newWork),
+    //     headers: {
+    //         "Content-Type": "application/json",
+    //     },
+    // });
 });
 let makeInput = document.getElementById("make");
 let modelInput = document.getElementById("model");
 let jobInput = document.getElementById("job");
 let timeInput = document.getElementById("time");
-
-fetch("http://localhost:3000/")
-    .then((res) => {
-        return res.json();
-    })
-    .then((data) => {
-        console.log(data);
-    });
