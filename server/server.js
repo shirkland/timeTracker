@@ -5,10 +5,9 @@ const app = express();
 app.use(cors());
 const port = 3000;
 const jsonParser = bodyParser.json();
+let mysql2 = require("mysql2");
 
-app.get("/poop", (req, res) => {
-    let mysql2 = require("mysql2");
-
+app.get("/", (req, res) => {
     let connector = mysql2.createConnection({
         host: "localhost",
         user: "root",
@@ -28,12 +27,36 @@ app.get("/poop", (req, res) => {
 });
 
 app.post("/", jsonParser, (req, res) => {
-    // if (req.body.data === 5) {
-    //     res.status(200);
-    // } else {
-    //     res.status(400);
-    // }
-    console.log(req.body);
+    let newData = req.body;
+    let newArr = [
+        newData.RO_Number,
+        newData.Make,
+        newData.Model,
+        newData.Repairs,
+        newData.Hours,
+        newData.isDone,
+    ];
+
+    let connector = mysql2.createConnection({
+        host: "localhost",
+        user: "root",
+        password: "Wordpass666!",
+        database: "work",
+    });
+
+    connector.connect(function (err) {
+        if (err) throw err;
+        console.log("Connected!");
+        connector.query(
+            "INSERT INTO jobs(RO_Number, Make, Model, Repairs, Hours, isDone) VALUES (?,?,?,?,?,?)",
+            newArr,
+            function (err, result) {
+                if (err) throw err;
+                // console.log("Result: " + result);
+                // console.log(JSON.stringify(result[0].Make));
+            }
+        );
+    });
 });
 
 app.listen(port, () => {

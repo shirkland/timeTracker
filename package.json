@@ -1,0 +1,22 @@
+{
+  "name": "timetracker",
+  "version": "1.0.0",
+  "description": "Application to keep track of flat rate work completed.",
+  "main": "scripts.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shirkland/timeTracker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shirkland/timeTracker/issues"
+  },
+  "homepage": "https://github.com/shirkland/timeTracker#readme",
+  "dependencies": {
+    "ag-grid-community": "^28.1.1"
+  }
+}
