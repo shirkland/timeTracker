@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
     <input id="ro_number" placeholder="ro number"/>
@@ -13,10 +14,15 @@
     <input id="repairs" placeholder="repairs"/>
     <input id="time" placeholder="time"/> 
     <button id="logButton">commit</button>
-    <button id="displayShiz"> show me</button>
-    <p id="fuckIt"></p>
-    <script src="https://unpkg.com/ag-grid-community/dist/ag-grid-community.min.js"></script>
+    <div>
+        <table id="table">
+            <th>RO Number</th>
+            <th>Make</th>
+            <th>Model</th>
+            <th>Repairs</th>
+            <th>Hours</th>
+        </table>
+    </div>
     <script src="scripts.js" type="module"></script>
-    
-</body>
+    </body>
 </html>

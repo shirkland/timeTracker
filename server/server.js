@@ -57,6 +57,7 @@ app.post("/", jsonParser, (req, res) => {
             }
         );
     });
+    res.send("anything");
 });
 
 app.listen(port, () => {
